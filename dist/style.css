@@ -1,0 +1,14 @@
+#matrixContainer{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-areas: 
+
+}
+
+/* .val{
+    display: inline;
+    grid-area: v
+} */
+

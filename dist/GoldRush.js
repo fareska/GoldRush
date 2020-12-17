@@ -1,4 +1,3 @@
-const Matrix = require('./Matrix.js')
 
 class GoldRush extends Matrix {
     constructor(rows, cols) {
@@ -17,6 +16,9 @@ class GoldRush extends Matrix {
         }
     }
     
+    getMatrix(){return this.matrix}
+    getScore(){return this.score}
+
     generateMatrix(rows, cols) {
         this.firstPlayer = 1
         this.secondPlayer = 2

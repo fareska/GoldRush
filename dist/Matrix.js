@@ -55,4 +55,3 @@ class Matrix{
     }
 }
 
-module.exports= Matrix
