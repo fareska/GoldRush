@@ -7,7 +7,6 @@ renderer.renderScores(logic.getScore())
 
 $(document).on('keypress', function (e) {
     if (e.which === 119||e.which === 87) { 
-        console.log(e.which)
         logic.movePlayer(1, 'up')
     }
     renderer.renderBoard(logic.getMatrix())

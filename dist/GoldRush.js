@@ -30,17 +30,39 @@ class GoldRush extends Matrix {
         }
         this.alter(0, 0, this.firstPlayer)
         this.alter(rows - 1, cols - 1,this.secondPlayer)
-        this.generateCoins()    
+        this.generateCoins(rows*cols*0.7)
+        this.generateObstacles(rows*cols*0.3)    
     }
 
-    generateCoins(counter=0){
-        while(counter < 70 ){
-            let random = this.getRndInteger(0, 9) // {row:3 col:2} //between 1-4
+    generateCoins(limit){
+        let counter = 0
+        while(counter < limit ){
+            let random = this.getRndInteger(0, this.matrix.length-1) // {row:3 col:2} //between 1-4
             if(this.get(random.row, random.col) ==='.'){
                 this.alter(random.row,random.col , 'c')
                 counter++
             }
         }            
+    }
+    
+    generateObstacles(limit){
+        let counter = 0
+        while(counter < limit ){
+            let random = this.getRndInteger(0, this.matrix.length-1) // {row:3 col:2} //between 1-4
+            if(this.isValidObstacle(random)){
+                this.alter(random.row,random.col , 'w')
+                counter++
+            }
+        }            
+    }
+
+    isValidObstacle(random){
+        if(
+            this.get(random.row, random.col) != this.firstPlayer 
+            &&this.get(random.row, random.col) != this.secondPlayer
+        )
+        {return true
+        } return false
     }
 
     getRndInteger(min, max) {
@@ -56,19 +78,34 @@ class GoldRush extends Matrix {
             this.move.startCoordinate = {x:this.coordinate.x, y:this.coordinate.y}
             
             let endCoordinate = this.move[direction](this.move.startCoordinate)
-            if (endCoordinate.x < this.matrix.length && endCoordinate.x>-1 && endCoordinate.y < this.matrix.length && endCoordinate.y>-1 ){
+            if (this.isValidMove(endCoordinate)){
                 this.checkScore(endCoordinate, playerNum)
                 this.alter(endCoordinate.y, endCoordinate.x, playerNum)
-                this.alter(this.coordinate.y, this.coordinate.x, 'empty')
+                this.alter(this.coordinate.y, this.coordinate.x, ' ')
             }  
         } 
     }
 
-    // isValid(c)
+    isValidMove(endCoordinate){
+        if(
+            endCoordinate.x < this.matrix.length 
+            && endCoordinate.x>-1 
+            && endCoordinate.y < this.matrix.length 
+            && endCoordinate.y>-1
+            && this.get(endCoordinate.y,endCoordinate.x)!='w'
+            && this.get(endCoordinate.y,endCoordinate.x)!= this.firstPlayer
+            && this.get(endCoordinate.y,endCoordinate.x)!= this.secondPlayer
+        )
+        
+        {return true
+        }else return false
+    }
 
     checkScore(coordinate, playerNum){
         if(this.get(coordinate.y,coordinate.x)==='c') return this.score[`_${playerNum}score`] +=10
-        else return false
+        else if(this.get(coordinate.y,coordinate.x)==='.'){
+            return this.score[`_${playerNum}score`] -=5
+        } else return false
     }
 
     moveLeft(coordinate) {

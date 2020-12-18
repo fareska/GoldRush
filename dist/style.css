@@ -7,6 +7,21 @@
 
 }
 
+.playerOne>i{
+    background-color: blue;
+}
+.playerTwo>i{
+    background-color: red;
+}
+
+.coins>i{
+    background-color:gold;
+}
+
+.obstacle>i{
+    background-color:gold;
+}
+
 /* .val{
     display: inline;
     grid-area: v
