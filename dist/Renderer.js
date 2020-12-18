@@ -1,9 +1,3 @@
-// const source = $('#matrix-template').html()
-// const template = Handlebars.compile(source)
-
-// const newHtml = template({ val: matrixArr })
-// $('#matrixContainer').empty().append(newHtml)
-// matrixArr.forEach(row=> row.forEach(col=>$('#matrixContainer').append(`<div class="val">${col}</div>`)) )
 class Renderer {
     constructor() {}
 

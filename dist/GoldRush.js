@@ -34,8 +34,8 @@ class GoldRush extends Matrix {
     }
 
     generateCoins(counter=0){
-        while(counter < 5 ){
-            let random = this.getRndInteger(0, 4) // {row:3 col:2} //between 1-4
+        while(counter < 70 ){
+            let random = this.getRndInteger(0, 9) // {row:3 col:2} //between 1-4
             if(this.get(random.row, random.col) ==='.'){
                 this.alter(random.row,random.col , 'c')
                 counter++
@@ -56,15 +56,15 @@ class GoldRush extends Matrix {
             this.move.startCoordinate = {x:this.coordinate.x, y:this.coordinate.y}
             
             let endCoordinate = this.move[direction](this.move.startCoordinate)
-            
-            this.checkScore(endCoordinate, playerNum)
-            
-            this.alter(endCoordinate.y, endCoordinate.x, playerNum)
-            this.alter(this.coordinate.y, this.coordinate.x, 'empty')
-        } else {
-            alert('Invalid PlayerNum')
-        }
+            if (endCoordinate.x < this.matrix.length && endCoordinate.x>-1 && endCoordinate.y < this.matrix.length && endCoordinate.y>-1 ){
+                this.checkScore(endCoordinate, playerNum)
+                this.alter(endCoordinate.y, endCoordinate.x, playerNum)
+                this.alter(this.coordinate.y, this.coordinate.x, 'empty')
+            }  
+        } 
     }
+
+    // isValid(c)
 
     checkScore(coordinate, playerNum){
         if(this.get(coordinate.y,coordinate.x)==='c') return this.score[`_${playerNum}score`] +=10
@@ -89,22 +89,4 @@ class GoldRush extends Matrix {
     }
 }
 
-const board = new GoldRush(5, 5)
-// const board = new GoldRush(5, 5)
-// board.print()
-
-board.movePlayer(1, 'down') //this method should be defined inside of GoldRush
-// board.print()
-
-board.movePlayer(2, "left")
-// // board.print()
-
-board.movePlayer(2, "up")
-board.movePlayer(2, "left")
-board.movePlayer(2, "left")
-board.movePlayer(2, "up")
-board.print() 
-//prints
-
-console.log(board.score)
 

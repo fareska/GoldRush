@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Gold Rush</title>
-</head>
-<body>
-    <div id="matrixContainer"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+            integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Balthazar"
+            rel="stylesheet"
+        />
+        <title>Gold Rush</title>
+    </head>
+    <body>
+        <div id="matrixContainer"></div>
 
-    <!-- <script id="matrix-template" type="text/x-handlebars-template">
-        {{#each val}}
-            <div id="{{_id}}" class="city">
-                <p class="temperature">{{temperature}}<span>&#8451;</span></p>
-                <p class="name">{{name}}</p>
-                <img src="{{conditionPic}}" alt="" srcset="">
-                <p class="condition">{{condition}}</p>
-                {{#if isSaved}}
+        <div id="startContainer">
+            <div id="players">
+                <div id="player1" class="player"></div>
+                <div id="player2" class="player"></div>
             </div>
-        {{/each}}
-    </script> -->
-
-    <div id="startContainer">
-        <div id="players">
-            <div id="player1" class="player"></div>
-            <div id="player2" class="player"></div>
+            <button>Start</button>
         </div>
-        <button>Start</button>
-    </div>
 
-    <script src="./jquery/dist/jquery.js"></script>
-    <script src="Matrix.js"></script>
-    <script src="GoldRush.js"></script>
-    <script src="Renderer.js"></script>
-    <script src="main.js"></script>
-</body>
+        <script src="./jquery/dist/jquery.js"></script>
+        <script src="Matrix.js"></script>
+        <script src="GoldRush.js"></script>
+        <script src="Renderer.js"></script>
+        <script src="main.js"></script>
+    </body>
 </html>
