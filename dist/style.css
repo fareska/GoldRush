@@ -1,29 +1,58 @@
 #matrixContainer{
-    height: 100vh;
+    
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    grid-template-areas: 
+    grid-gap: 1px;
+    height: 31px;
+    align-items: center;
+}
 
+#matrixContainer>div{
+    background-color: cornsilk;
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    
+}
+#startContainer{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+#players{
+    position: relative;
+}
+    
+#player2{
+    right: 30px;
+    position: absolute;
+}
+
+.player{
+    display: inline;
+    bottom: 10px;
+    position: relative;
 }
 
 .playerOne>i{
-    background-color: blue;
+    color   : blue;
 }
 .playerTwo>i{
-    background-color: red;
+    color: green;
 }
 
 .coins>i{
-    background-color:gold;
+    color:gold;
 }
 
 .obstacle>i{
-    background-color:gold;
+    color:gray;
 }
 
-/* .val{
-    display: inline;
-    grid-area: v
-} */
+.poison>i{
+    color:red;
+}
 
+.fa, .fab, .fal, .far, .fas {
+    font-size: xx-large;
+}
